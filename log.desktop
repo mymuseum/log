@@ -1,0 +1,11 @@
+[Desktop Entry]
+
+Type=Application
+Version=1.0
+Name=Log
+Comment=Log and time-tracking utility
+Path=/usr/bin
+Exec=log
+Icon=log
+Terminal=false
+Categories=Productivity;

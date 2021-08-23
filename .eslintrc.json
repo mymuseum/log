@@ -1,0 +1,37 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true
+  },
+  "extends": "airbnb-base",
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "LOG": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": "off",
+    "import/no-self-import": "off",
+    "import/no-unresolved": "off",
+    "import/order": "off",
+    "comma-dangle": "off",
+    "func-names": ["error", "never"],
+    "guard-for-in": "off",
+    "no-bitwise": "off",
+    "no-console": "off",
+    "no-continue": "off",
+    "no-plusplus": "off",
+    "no-restricted-syntax": "off",
+    "no-return-assign": "off",
+    "no-undef": "off",
+    "no-unresolved": "off",
+    "no-unused-vars": "off",
+    "object-curly-newline": "off",
+    "object-curly-spacing": ["error", "never"],
+    "space-before-function-paren": "off"
+  }
+}

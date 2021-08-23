@@ -1,0 +1,27 @@
+{
+  "name": "Log",
+  "version": "1.0.5",
+  "description": "A single-task time-tracker",
+  "repository": "https://github.com/joshavanier/log",
+  "main": "./main.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron . dev",
+    "lint": "eslint ./src/js",
+    "apple": "electron-packager . Log --platform=darwin --arch=x64 --out ./build --overwrite",
+    "penguin": "electron-packager . Log --platform=linux  --arch=x64 --out ./build --overwrite"
+  },
+  "devDependencies": {
+    "electron": "^6.0.0",
+    "electron-packager": "^14.0.4",
+    "electron-reload": "^1.4.1",
+    "js-meter": "^1.1.4"
+  },
+  "dependencies": {
+    "aequirys": "^1.1.1"
+  },
+  "os": [
+    "!win32"
+  ]
+}
