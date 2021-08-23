@@ -1,0 +1,67 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Log</title>
+<link rel="stylesheet" href="css/font/inter-ui.css">
+<link rel="stylesheet" href="css/macian.min.css">
+<script src="js/drop.js"></script>
+<script src="js/log.js"></script>
+<script src="js/options.js"></script>
+<script src="js/cli.js"></script>
+<script src="js/time.js"></script>
+<script src="js/data.js"></script>
+<body>
+<div id="ui" class="noselect r p4 hf cn c-d"></div>
+<script>
+  const {app} = window.require('electron').remote;
+  const fs = window.require('fs');
+
+  const notify = m => new Notification(m);
+
+  const Command = window.require('./js/command');
+  const Lexicon = window.require('./js/lexicon');
+  const Config = window.require('./js/config');
+  const Update = window.require('./js/update');
+  const Entry = window.require('./js/entry');
+  const Store = window.require('./js/store');
+  const Nav = window.require('./js/nav');
+  const LogSet = window.require('./js/set');
+  const UI = window.require('./js/ui/ui');
+
+  let filePath = '';
+  if (localStorage.hasOwnProperty('logDataPath')) {
+    filePath = localStorage.getItem('logDataPath');
+  } else {
+    const msg = 'Data path not found';
+    console.error(msg);
+    new window.Notification(msg);
+    filePath = `${app.getPath('appData')}/log.json`;
+    localStorage.setItem('logDataPath', filePath);
+  }
+
+  const data = new Store({
+    path: filePath,
+    defaults: {
+      locale: 'en',
+      config: {
+        bg: '#f8f8f8',
+        fg: '#202020',
+        ac: '#eb4e32',
+        cm: 'sc',
+        vw: 28,
+        tm: 1,
+        ca: 0,
+        st: 0
+      },
+      pp: {},
+      sp: {},
+      log: []
+    }
+  });
+
+  const jm = window.require('js-meter');
+  const m = new jm({isPrint: true, isMb: true});
+  console.time('run')
+  LOG.init(data);
+  console.timeEnd('run')
+  m.stop();
+</script>
